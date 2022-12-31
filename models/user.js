@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose')
+const { Schema, model, default: mongoose } = require('mongoose')
 const bcrypt = require('bcrypt')
 
 const SALT_ROUNDS = 6
@@ -17,7 +17,19 @@ const userSchema = new Schema({
     trim: true,
     minLength: 3,
     required: true
-  }
+  },
+  board:[{
+    type: mongoose.Schema.Types.ObjectId, 
+    ref:'Board',
+    list:[{
+      type: mongoose.Schema.Types.ObjectId, 
+      ref:'List',
+      card:[{      
+        type: mongoose.Schema.Types.ObjectId, 
+        ref:'Card'
+      }]
+    }]
+  }]
 }, {
   timestamps: true,
   toJSON: {

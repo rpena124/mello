@@ -27,6 +27,7 @@ app.use('/api/users', require('./routes/api/users'))
 
 const ensureLoggedIn  = require('./config/ensureLoggedIn')
 app.use('/api/boards', ensureLoggedIn, require('./routes/api/boards'))
+// app.use('/api/lists', ensureLoggedIn, require('./routes/api/lists'))
 
 app.get('/api/test', (req, res) => {
     res.json({'eureka': 'you have found it'})

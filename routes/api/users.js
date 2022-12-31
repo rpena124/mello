@@ -4,6 +4,8 @@ const router = express.Router()
 const { checkToken, dataController, apiController } = require('../../controllers/api/users')
 const ensureLoggedIn = require('../../config/ensureLoggedIn')
 
+//Index : Get /api/boards
+router.get('/:id', dataController.index, apiController.index)
 // POST /api/users
 router.post('/', dataController.create, apiController.auth)
 // POST /api/users/login

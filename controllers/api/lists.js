@@ -1,17 +1,16 @@
-const Board = require('../../models/board')
+const List = require('../../models/list')
 
-const boardDataController = {
+const ListDataController = {
     //Index
     index(req, res, next)
     {
-        Board.find({}, (err, froundBoards)=>{
+        List.find({}, (err, froundLists)=>{
             if(err){
                 res.satus(400).send({
                     msg:err.message,
-                    output: 'could not find baords boards.index'
                 })
             }else{
-                res.locals.data.boards = froundBoards
+                res.locals.data.lists = froundLists
                 next()
             }
         })
@@ -19,59 +18,53 @@ const boardDataController = {
     //Destroy 
     destroy(req,res,next)
     {
-        Board.findByIdAndDelete(req.params.id,(err, deletedboard)=>{
+        List.findByIdAndDelete(req.params.id,(err, deletedList)=>{
             if(err){
                 res.status(400).send({
                     msg:err.message,
-                    output: 'could not delete baords boards.destroy'
                 })
             }else{
-                res.locals.data.board = deletedboard
+                res.locals.data.list = deletedList
                 next()
             }
         })
     },
-
     //Update
     update(req,res, next)
     {
-        Board.findByIdAndUpdate(req.params.id,req.body,{new:true},(err, updatedBoard)=>{
+        List.findByIdAndUpdate(req.params.id,req.body,{new:true},(err, updatedList)=>{
             if(err){
                 res.status(400).send({
                     msg:err.message,
-                    output: 'could not update baords boards.update'
                 })
             }else{                    
-                res.locals.data.board = updatedBoard
+                res.locals.data.list = updatedList
                 next()
             }
         })
     },
-
     //Create
     create(req, res, next){
-        Board.create(req.body,(err, createdBoard)=>{
+        List.create(req.body,(err, createdList)=>{
             if(err){
                 res.status(400).send({
                     msg:err.message,
-                    output: 'could not create baord boards.create'
                 })
             }else{
-                res.locals.data.board = createdBoard
+                res.locals.data.board = createdList
                 next()
             }
         })
     },
     //Show
     show(req,res,next){
-        Board.findById(req.params.id,(err,foundBoard)=>{
+        List.findById(req.params.id,(err,foundList)=>{
             if(err){
                 res.status(400).send({
                     msg:err.message,
-                    output: 'could not show baord controlers/api/boards.show'
                 })
             }else{
-                res.locals.data.board = foundBoard
+                res.locals.data.list = foundList
                 next()
             }
         })
@@ -80,11 +73,11 @@ const boardDataController = {
 
 const apiController = {
     index(req, res, next){
-      res.json(res.locals.data.boards)
+      res.json(res.locals.data.lists)
     },
     show(req, res, next){
-      res.json(res.locals.data.board)
+      res.json(res.locals.data.list)
     }
 }
 
-module.exports = {boardDataController, apiController}
+module.exports = {ListDataController, apiController}

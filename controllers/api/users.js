@@ -10,6 +10,20 @@ const checkToken = (req, res) => {
 }
 
 const dataController = {
+      //Index
+      index(req, res, next)
+      {
+          User.find({}).populate('users').exec((err, usersDocuments)=>{
+              if(err){
+                  res.satus(400).send({
+                      msg:err.message,
+                  })
+              }else{
+                  res.locals.data.user = usersDocuments
+                  next()
+              }
+          })
+      },
   async create (req, res, next) {
     try {
       const user = await User.create(req.body)
@@ -43,6 +57,12 @@ const dataController = {
 const apiController = {
   auth (req, res) {
     res.json(res.locals.data.token)
+  },
+  index(req, res, next){
+    res.json(res.locals.data.users)
+  },
+  show(req, res, next){
+    res.json(res.locals.data.users)
   }
 }
 

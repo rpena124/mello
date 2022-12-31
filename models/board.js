@@ -1,9 +1,15 @@
 const {Schema, model, mongo, default: mongoose} = require('mongoose')
 
 const boardSchema = new Schema({
-    userId:{type: mongoose.Schema.Types.ObjectId, ref:'User'},
     title: String,
-    list:[{type: mongoose.Schema.Types.ObjectId, ref:'List'}]
+    list:[{
+        type: mongoose.Schema.Types.ObjectId, 
+        ref:'List',
+        card:[{      
+          type: mongoose.Schema.Types.ObjectId, 
+          ref:'Card'
+        }]
+    }]
 },{
     timestamps:true
 })
