@@ -1,0 +1,47 @@
+@import '../../settings';
+
+.column{
+    flex: 0 0 auto;
+    width: 300px;
+    height: calc(100% - var(--gap));
+    margin-left: 10px;
+}
+
+.column *{
+    background-color: var(--list-bg-color)  ;
+    color: #333;
+    padding: 0 8px;
+}
+header{
+    padding-left: 15px;
+    height: var(--column-header-height);
+    line-height: var(--column-header-height);
+    font-size: 16px;
+    font-weight: bold ;
+    border-top-left-radius: var(--column-border-radius);
+    border-top-right-radius: var(--column-border-radius);
+}
+
+footer{
+    padding-left: 10px;
+    height: var(--column-footer-height);
+    line-height: var(--column-footer-height);
+    border-bottom-left-radius: var(--column-border-radius);
+    border-bottom-right-radius: var(--column-border-radius);
+}
+
+ul.card-list{
+    list-style-type: none;
+    margin: 0;
+    max-height: calc(100% - var(--column-header-height) - var(--column-footer-height)) ;
+    overflow-y: auto;  
+}
+
+ul.card-list::-webkit-scrollbar-:vertical{
+    width: 11px;
+}
+ul.card-list::-webkit-scrollbar-thumb{
+    background-color: rgba(var(--list-bg-color), .15);
+    border-right:5px solid var(--list-bg-color) ;
+}
+

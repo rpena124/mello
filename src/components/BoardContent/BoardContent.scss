@@ -1,0 +1,18 @@
+@import '../../settings.scss';
+
+
+.board-columns{
+    display: flex;
+    overflow-x: auto;
+    margin: 0 var(--gap) var(--gap);
+    gap: 10px;
+}
+.board-columns::-webkit-scrollbar-:horizontal{
+    height: 11px;
+}
+.board-columns::-webkit-scrollbar-thumb{
+    background-color: rgba(255,255,255,0.24);
+    border-radius:5px solid var(--list-bg-color) ;
+}
+
+

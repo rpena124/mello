@@ -1,14 +1,4 @@
-:root{
-    --board-bg-color: #0079bf;
-    --navbar-app-bg-color: #0067a3;
-    --navbar-board-bg-color: #0079bf;
-    --list-bg-color: #ebecf0 ;
-    --gap: 10px;
-    --column-header-height: 36px;
-    --column-footer-height: 36px;
-    --column-border-radius: 5px;
-    --card-border-radius: 3px;
-}
+@import './_settings.scss';
 
 body {
     margin: 0;
@@ -28,96 +18,6 @@ body {
     background-color: var(--board-bg-color);
 }
 
-.navbar{
-    padding-left: var(--gap);
-    display: flex;
-    align-items: center;
-}
 
-.app{
-    font-size: 1.5rem;
-    background-color: var(--navbar-app-bg-color);
-}
-.board{
-    font-size: 1.1rem;
-    background-color: var(--navbar-board-bg-color);
-}
 
-.board-columns{
-    display: flex;
-    overflow-x: auto;
-    margin: 0 var(--gap) var(--gap);
-    gap: 10px;
-}
 
-.board-columns::-webkit-scrollbar-:horizontal{
-    height: 11px;
-}
-.board-columns::-webkit-scrollbar-thumb{
-    background-color: rgba(255,255,255,0.24);
-    border-radius:5px solid var(--list-bg-color) ;
-}
-
-.column{
-    flex: 0 0 auto;
-    width: 300px;
-    height: calc(100% - var(--gap));
-    margin-left: 10px;
-}
-
-.column *{
-    background-color: var(--list-bg-color)  ;
-    color: #333;
-    padding: 0 8px;
-}
-header{
-    padding-left: 15px;
-    height: var(--column-header-height);
-    line-height: var(--column-header-height);
-    font-size: 16px;
-    font-weight: bold ;
-    border-top-left-radius: var(--column-border-radius);
-    border-top-right-radius: var(--column-border-radius);
-}
-
-footer{
-    padding-left: 10px;
-    height: var(--column-footer-height);
-    line-height: var(--column-footer-height);
-    border-bottom-left-radius: var(--column-border-radius);
-    border-bottom-right-radius: var(--column-border-radius);
-}
-
-ul{
-    list-style-type: none;
-    margin: 0;
-    max-height: calc(100% - var(--column-header-height) - var(--column-footer-height)) ;
-    overflow-y: auto;  
-}
-
-ul.list::-webkit-scrollbar-:vertical{
-    width: 11px;
-}
-ul.list::-webkit-scrollbar-thumb{
-    background-color: rgba(var(--list-bg-color), .15);
-    border-right:5px solid var(--list-bg-color) ;
-}
-
-li.card{
-    background-color: white;
-    padding: var(--gap);
-    border-radius: var(--card-border-radius);
-    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-    overflow: hidden;
-}
-li.card:not(:last-child){
-    margin-bottom: var(--gap);
-
-}
-img{
-    display: block;
-    width: calc(100% + 2 * 10px);
-    margin: -10px 0 10px -10px ;
-    border-top-left-radius: var(--card-border-radius);
-    border-top-right-radius: var(--card-border-radius);
-}
