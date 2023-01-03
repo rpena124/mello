@@ -17,6 +17,9 @@ export const initialData = {
                         {id:'card-5',boardId:'board-1',column:'column-1', title:'title of card 5', img: null},
                         {id:'card-6',boardId:'board-1',column:'column-1', title:'title of card 6', img: null},
                         {id:'card-7',boardId:'board-1',column:'column-1', title:'title of card 7', img: null},
+                        {id:'card-8',boardId:'board-1',column:'column-1', title:'title of card 8', img: null},
+                        {id:'card-9',boardId:'board-1',column:'column-1', title:'title of card 9', img: null},
+                        {id:'card-10',boardId:'board-1',column:'column-1', title:'title of card 10', img: null},
                     ]
                 },
                 {

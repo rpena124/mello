@@ -4,7 +4,7 @@
 .board-columns{
     display: flex;
     overflow-x: auto;
-    margin: 0 var(--gap) var(--gap);
+    margin: 0 var(--gap) var(--gap) 0;
     gap: 10px;
 }
 .board-columns::-webkit-scrollbar-:horizontal{
@@ -14,5 +14,9 @@
     background-color: rgba(255,255,255,0.24);
     border-radius:5px solid var(--list-bg-color) ;
 }
-
+.column-drop-preview {
+    background-color: rgba(150, 150, 200, 0.1);
+    border: 1px dashed #abc;
+    margin: 5px 45px 5px 5px;
+  }
 

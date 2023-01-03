@@ -6,12 +6,14 @@ export default function Card(props) {
     return (
         <>
 
-            <li className="card card-item">
+            <div className="card card-item">
                 {card.img &&
-                    <img className='card-cover' src={card.img} />
+                    <img className='card-cover' src={card.img}
+                        onMouseDown={event => event.preventDefault()}
+                    />
                 }
                 {card.title}
-            </li>
+            </div>
 
         </>
 

@@ -1,25 +1,32 @@
 import Column from '../Column/Column'
 import './BoardContent.scss'
-import {initialData } from '../../actions/initalData'
+import { initialData } from '../../actions/initalData'
 import { useState, useEffect } from 'react';
 import _, { isEmpty } from 'lodash';
 import { mapOrder } from '../../utilities/sorts';
+import { Container, Draggable } from 'react-smooth-dnd';
 
-export default function BoardContent(){
+
+export default function BoardContent() {
     const [board, setBoard] = useState({});
-    const [columns, setColumns]= useState([]);
+    const [columns, setColumns] = useState([]);
 
-    useEffect(()=>{
+    useEffect(() => {
         const boardInitData = initialData.boards.find(item => item.id === 'board-1');
-        if(boardInitData){
+        if (boardInitData) {
             setBoard(boardInitData);
 
             // sort columns
-            setColumns(mapOrder(boardInitData.columns,boardInitData.columnOrder, 'id'))
+            setColumns(mapOrder(boardInitData.columns, boardInitData.columnOrder, 'id'))
         }
-    },[])
-    if(isEmpty(board)){
-        return(
+    }, [])
+
+    const onColumnDrop = (dropResult) =>{
+        console.log('>>>>>inside', dropResult)
+    }
+
+    if (_.isEmpty(board)) {
+        return (
             <>
                 <div className='not-found'>
                     Board not found
@@ -28,17 +35,29 @@ export default function BoardContent(){
         )
     }
 
-    return(
+    return (
         <div className="board-columns">
-            {columns && columns.length > 0 && columns.map((column, index)=>{
-                return(
-                    <Column 
-                        key={column.id}
-                        column = {column}
-                    />
-                )
-            })}
-
-      </div>
+            <Container
+                orientation="horizontal"
+                onDrop={onColumnDrop}
+                getChildPayload = {index => columns[index]}
+                dragHandleSelector=".column-drag-handle"
+                dropPlaceholder={{
+                    animationDuration: 150,
+                    showOnTop: true,
+                    className: 'column-drop-preview'
+                }}
+            >
+                {columns && columns.length > 0 && columns.map((column, index) => {
+                    return (
+                        <Draggable key={column.id}>
+                            <Column
+                                column={column}
+                            />
+                        </Draggable>
+                    )
+                })}
+            </Container>
+        </div>
     )
 }
