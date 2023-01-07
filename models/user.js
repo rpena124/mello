@@ -18,18 +18,7 @@ const userSchema = new Schema({
     minLength: 3,
     required: true
   },
-  board:[{
-    type: mongoose.Schema.Types.ObjectId, 
-    ref:'Board',
-    list:[{
-      type: mongoose.Schema.Types.ObjectId, 
-      ref:'List',
-      card:[{      
-        type: mongoose.Schema.Types.ObjectId, 
-        ref:'Card'
-      }]
-    }]
-  }]
+
 }, {
   timestamps: true,
   toJSON: {

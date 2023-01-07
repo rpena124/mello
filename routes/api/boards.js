@@ -12,6 +12,6 @@ router.put('/:id',boardDataController.update, apiController.show)
 //Create /api/boards
 router.post('/',boardDataController.create, apiController.show)
 //Show: Get /api/boards/:id
-router.get('/:id',boardDataController.show, apiController.show)
+router.get('/:boardId',boardDataController.show, apiController.show)
 
 module.exports = router

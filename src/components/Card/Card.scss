@@ -8,12 +8,13 @@ div.card-item{
     // overflow: hidden;
     cursor: pointer;
     margin-bottom: var(--gap);
+    
+    img{
+        display: block;
+        width: calc(100% + 2 * 10px);
+        margin: -10px 0 10px -18px ;
+        border-top-left-radius: var(--card-border-radius);
+        border-top-right-radius: var(--card-border-radius);
+    }
 }
 
-img{
-    display: block;
-    width: calc(100% + 2 * 10px);
-    margin: -10px 0 10px -10px ;
-    border-top-left-radius: var(--card-border-radius);
-    border-top-right-radius: var(--card-border-radius);
-}

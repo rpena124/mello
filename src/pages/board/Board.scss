@@ -1,4 +1,4 @@
-$board-bg-color: aqua;
+@import '../../settings';
 
 body {
     margin: 0;
@@ -9,10 +9,15 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-div.test{
+.trello-master{
     height: 100vh;
     display: grid;
     grid-template-rows: 40px 50px 1fr;
-    line-height: 1.3em;
-    background-color: $board-bg-color;
+    background-color: var(--app-main-color);
+
+    .icon{
+      font-size : 14px;
+      margin-right : 3px;
+    }
+
 }

@@ -4,11 +4,7 @@ const boardSchema = new Schema({
     title: String,
     list:[{
         type: mongoose.Schema.Types.ObjectId, 
-        ref:'List',
-        card:[{      
-          type: mongoose.Schema.Types.ObjectId, 
-          ref:'Card'
-        }]
+        ref:'List'
     }]
 },{
     timestamps:true

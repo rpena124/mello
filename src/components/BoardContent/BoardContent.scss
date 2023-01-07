@@ -6,17 +6,36 @@
     overflow-x: auto;
     margin: 0 var(--gap) var(--gap) 0;
     gap: 10px;
+
+    &::-webkit-scrollbar-:horizontal{
+        height: 11px;
+    }
+    &::-webkit-scrollbar-thumb{
+        background-color: rgba(255,255,255,0.24);
+        border-radius:5px solid var(--list-bg-color) ;
+    }
+    .column-drop-preview {
+        background-color: rgba(150, 150, 200, 0.1);
+        border: 1px dashed #abc;
+        margin: 5px 45px 5px 5px;
+    }
+    
+    .add-new-column{
+        width: 250px;
+        // height: 32px;
+        line-height: 32px;
+        padding: 4px 0 4px 15px ;
+        cursor: pointer;
+        color: white;
+        margin-left: var(--gap);
+        font-size: 15px;
+        background-color: hsla(0, 0, 100, .24);
+        border-radius: var(--card-border-radius);
+
+        &:hover{
+            background-color: hsla(0, 0, 100, .34);
+        }
+    }
+    
 }
-.board-columns::-webkit-scrollbar-:horizontal{
-    height: 11px;
-}
-.board-columns::-webkit-scrollbar-thumb{
-    background-color: rgba(255,255,255,0.24);
-    border-radius:5px solid var(--list-bg-color) ;
-}
-.column-drop-preview {
-    background-color: rgba(150, 150, 200, 0.1);
-    border: 1px dashed #abc;
-    margin: 5px 45px 5px 5px;
-  }
 

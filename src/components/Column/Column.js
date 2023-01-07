@@ -5,12 +5,9 @@ import { Container, Draggable } from 'react-smooth-dnd';
 
 export default function Column(props) {
 
-    const { column } = props;
+    const { column, onCardDrop } = props;
     const cards = column.cards;
 
-    const onCardDrop = (dropResult) => {
-        console.log(">>>>>inside onCardDrop", dropResult)
-    }
 
     return (
         <>
@@ -19,8 +16,8 @@ export default function Column(props) {
                 <div className="list  card-list">
                     <Container
                         groupName="col"
-                        onDrop={e => this.onCardDrop(column.id, e)}
-                        getChildPayload={index =>cards[index]}
+                        onDrop={(dropResult) => onCardDrop(dropResult, column.id)}
+                        getChildPayload={index => cards[index]}
                         dragClass="card-ghost"
                         dropClass="card-ghost-drop"
 
@@ -41,7 +38,13 @@ export default function Column(props) {
                         })}
                     </Container>
                 </div>
-                <footer>Add another card</footer>
+
+                <footer className='footer'>
+                    <div className='footer-action'>
+                        <i className='fa fa-plus icon'></i>Add another card
+                    </div>
+                </footer>
+
             </div>
         </>
     )

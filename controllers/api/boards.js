@@ -2,19 +2,18 @@ const Board = require('../../models/board')
 
 const boardDataController = {
     //Index
-    index(req, res, next)
+    async index(req, res, next)
     {
-        Board.find({}, (err, froundBoards)=>{
-            if(err){
-                res.satus(400).send({
-                    msg:err.message,
-                    output: 'could not find baords boards.index'
-                })
-            }else{
-                res.locals.data.boards = froundBoards
-                next()
-            }
+
+        const boards = await Board.find({}).populate({
+            path:'list',
+            populate:[
+                {
+                    path:'card',
+                }
+            ]
         })
+        res.status(200).json(boards)
     },
     //Destroy 
     destroy(req,res,next)
@@ -63,19 +62,12 @@ const boardDataController = {
         })
     },
     //Show
-    show(req,res,next){
-        Board.findById(req.params.id,(err,foundBoard)=>{
-            if(err){
-                res.status(400).send({
-                    msg:err.message,
-                    output: 'could not show baord controlers/api/boards.show'
-                })
-            }else{
-                res.locals.data.board = foundBoard
-                next()
-            }
-        })
+    async show(req,res,next){
+
+        const boards = await Board.findById(req.params.boardId).populate('list')
+        res.status(200).json(boards)
     }
+    
 }
 
 const apiController = {
