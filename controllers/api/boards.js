@@ -1,11 +1,11 @@
 const Board = require('../../models/board')
 
+
 const boardDataController = {
     //Index
     async index(req, res, next)
     {
-
-        const boards = await Board.find({}).populate({
+        const boards = await Board.find({user:req.user._id}).populate({
             path:'list',
             populate:[
                 {
@@ -49,6 +49,10 @@ const boardDataController = {
 
     //Create
     create(req, res, next){
+        console.log(req.user)
+        console.log(req.body)
+        //create board with user id
+        req.body.user = req.user._id
         Board.create(req.body,(err, createdBoard)=>{
             if(err){
                 res.status(400).send({

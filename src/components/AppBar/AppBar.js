@@ -1,10 +1,10 @@
 import React from "react";
 import './AppBar.scss';
 
-export default function AppBar(){
+export default function AppBar({id, title}){
     return(
         <>
-             <nav className="navbar-app"> App Bar</nav>
+             <nav className="navbar-app"> {title}</nav>
         </>
     )
 }

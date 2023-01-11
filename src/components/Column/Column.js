@@ -1,7 +1,7 @@
 import './Column.scss'
 import Card from '../Card/Card'
 import { mapOrder } from '../../utilities/sorts';
-import { Container, Draggable } from 'react-smooth-dnd';
+import { Container, Draggable } from 'rosa-react-smooth-dnd';
 
 export default function Column(props) {
 

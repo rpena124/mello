@@ -38,7 +38,6 @@ const ListDataController = {
     },
     //Create
     create(req, res, next){
-   
         List.create(req.body,(err, createdList)=>{
                 if(err){
                     res.status(400).send({

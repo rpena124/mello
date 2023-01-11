@@ -1,11 +1,15 @@
-const {Schema, model, mongo, default: mongoose} = require('mongoose')
+const {Schema, model} = require('mongoose')
 
 const boardSchema = new Schema({
     title: String,
     list:[{
-        type: mongoose.Schema.Types.ObjectId, 
+        type:Schema.Types.ObjectId, 
         ref:'List'
-    }]
+    }],
+    user:{
+        type:Schema.Types.ObjectId, 
+        ref:'User'
+    }
 },{
     timestamps:true
 })

@@ -1,0 +1,43 @@
+@import '../../_settings.scss';
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing : antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.3em;
+    font-size: 14px;
+    background-color: var(--board-bg-color);
+}
+div.board-container{
+    width: 100vw;
+    border: solid 10px black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: var(--gap);
+    gap: 30px 30px;
+
+
+}
+
+div.board{
+    order: 4;
+    width: 100px;
+    display: flex;
+    align-self: center;
+    width: 50px;
+    border: solid 10px red;
+    align-self: center;
+    // background-color: var(--board-icon-color);
+}
+
+.add-new-board{
+
+    &:hover{
+        color: grey;
+    }
+}

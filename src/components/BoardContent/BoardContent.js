@@ -4,12 +4,30 @@ import { initialData } from '../../actions/initalData'
 import { useState, useEffect } from 'react';
 import _, { isEmpty } from 'lodash';
 import { mapOrder } from '../../utilities/sorts';
-import { Container, Draggable } from 'react-smooth-dnd';
+import { Container, Draggable } from 'rosa-react-smooth-dnd';
 import {applyDrag} from '../../utilities/dragDrop';
 
-export default function BoardContent() {
+import sendRequest from '../../utilities/send-request'
+import { useParams } from "react-router-dom";
+
+export default function BoardContent(
+    {
+        columns,
+        setColumns,
+        foundColumn,
+        setFoundColumn,
+        newColumn,
+        setNewColumn,
+        getColumns,
+        deleteColumn,
+        updateColumnTitle,
+        createColumn,
+        handleChange
+    }
+) {
     const [board, setBoard] = useState({});
-    const [columns, setColumns] = useState([]);
+    const params = useParams()
+    const boardId = params.id
 
     useEffect(() => {
         const boardInitData = initialData.boards.find(item => item.id === 'board-1');
@@ -19,7 +37,19 @@ export default function BoardContent() {
             // sort columns
             setColumns(mapOrder(boardInitData.columns, boardInitData.columnOrder, 'id'))
         }
+
+        // const boardInitData = board.find(item => item.id === boardId);
+        // if (boardInitData) {
+        //     setBoard(boardInitData);
+
+        //     // // sort columns
+        //     // setColumns(mapOrder(boardInitData.columns, boardInitData.columnOrder, 'id'))
+        // }
+
     }, [])
+    // useEffect(() => {
+    //     getColumns()
+    // }, [foundColumn])
 
     const onColumnDrop = (dropResult) =>{
         let newColumns = [...columns];

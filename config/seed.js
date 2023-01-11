@@ -4,6 +4,7 @@ require('./database');
 const Card = require('../models/card');
 const List = require('../models/list');
 const Board = require('../models/board');
+const User = require('../models/user');
 
 (async function() {
 
@@ -49,10 +50,31 @@ const Board = require('../models/board');
         lists[1],
         lists[2],
         lists[3]
+    ]},
+    {title: 'New Year New Me', 
+    list:[
+        lists[0],
+        lists[1],
+        lists[2]
     ]}
   ]);
 
-  console.log(lists)
+  await User.deleteMany({});
+  const user = await User.create([
+    {
+      name:'Rosa',
+      email:'rosa@pena.com',
+      password:'test1',
+      boards:boards[0]
+    },
+    {
+      name:'Lina',
+      email:'Lina@diaz.com',
+      password:'test2',
+      boards:boards[1]
+    },
+  ])
+  console.log(user)
 
   process.exit();
 

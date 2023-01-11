@@ -24,7 +24,6 @@ app.use('/api', routes) <====== Finish code once you got it
 */
 app.use('/api/users', require('./routes/api/users'))
 
-
 const ensureLoggedIn  = require('./config/ensureLoggedIn')
 app.use('/api/boards', ensureLoggedIn,require('./routes/api/boards'))
 app.use('/api/lists', ensureLoggedIn, require('./routes/api/lists'))
