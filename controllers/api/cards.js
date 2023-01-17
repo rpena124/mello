@@ -11,7 +11,7 @@ const CardDataController = {
                     msg:err.message,
                 })
             }else{
-                res.locals.data.Cards = foundCards
+                res.locals.data.cards = foundCards
                 next()
             }
         })
@@ -25,7 +25,7 @@ const CardDataController = {
                     msg:err.message,
                 })
             }else{
-                res.locals.data.Card = deletedCard
+                res.locals.data.card = deletedCard
                 next()
             }
         })
@@ -39,7 +39,7 @@ const CardDataController = {
                     msg:err.message,
                 })
             }else{                    
-                res.locals.data.Card = updatedCard
+                res.locals.data.card = updatedCard
                 next()
             }
         })
@@ -60,7 +60,7 @@ const CardDataController = {
                                 msg:err.message,
                             })
                         }else{
-                            res.locals.data.list = createdCard
+                            res.locals.data.card = createdCard
                             next()
                         }
                     })
@@ -70,26 +70,31 @@ const CardDataController = {
 
     },
     //Show
-    show(req,res,next){
-        Card.findById(req.params.id,(err,foundCard)=>{
-            if(err){
-                res.status(400).send({
-                    msg:err.message,
-                })
-            }else{
-                res.locals.data.Card = foundCard
-                next()
-            }
-        })
+    async show(req,res,next){
+        // Card.findById(req.params.id,(err,foundCard)=>{
+        //     if(err){
+        //         res.status(400).send({
+        //             msg:err.message,
+        //         })
+        //     }else{
+        //         res.locals.data.card = foundCard
+        //         next()
+        //     }
+        // })
+
+        const cards = await Card.findById(req.params.listId).populate('title').populate('description')
+        res.status(200).json(cards)
     }
+
+
 }
 
 const apiController = {
     index(req, res, next){
-      res.json(res.locals.data.Cards)
+      res.json(res.locals.data.cards)
     },
     show(req, res, next){
-      res.json(res.locals.data.Card)
+      res.json(res.locals.data.card)
     }
 }
 

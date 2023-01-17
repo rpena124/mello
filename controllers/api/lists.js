@@ -50,7 +50,7 @@ const ListDataController = {
                                 msg:err.message,
                             })
                         }else{
-                            res.locals.data.board = createdList
+                            res.locals.data.list = createdList
                             next()
                         }
                     })

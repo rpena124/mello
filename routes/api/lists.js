@@ -10,7 +10,7 @@ router.delete('/:id',ListDataController.destroy, apiController.show)
 //Update /api/lists/:id
 router.put('/:id', ListDataController.update, apiController.show)
 //Create /api/lists
-router.post('/board/:boardId', ListDataController.create, apiController.show)
+router.post('/:boardId', ListDataController.create, apiController.show)
 //Show: Get /api/lists/:id
 router.get('/:listId',ListDataController.show, apiController.show)
 

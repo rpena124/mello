@@ -49,9 +49,7 @@ const boardDataController = {
 
     //Create
     create(req, res, next){
-        console.log(req.user)
-        console.log(req.body)
-        //create board with user id
+
         req.body.user = req.user._id
         Board.create(req.body,(err, createdBoard)=>{
             if(err){

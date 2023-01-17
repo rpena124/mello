@@ -10,7 +10,7 @@ router.delete('/:id', CardDataController.destroy, apiController.show)
 //Update /api/cards/:id
 router.put('/:id', CardDataController.update, apiController.show)
 //Create /api/cards
-router.post('/list/:listId', CardDataController.create, apiController.show)
+router.post('/:listId', CardDataController.create, apiController.show)
 //Show: Get /api/cards/:id
 router.get('/:id', CardDataController.show, apiController.show)
 

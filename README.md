@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Introduction: 
+Mello is a project management tool that utilizes the kanban framework. Allowing users to organize their work and personal project in one application. Take the stess away and keep it Mello!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![mello-board](public/mello-board.png)
 
-## Available Scripts
+# Technologies Used: A list of all technologies, libraries, APIs, etc. used in the project.
 
-In the project directory, you can run:
+- Visual Sutdio Code
+- Mongo DB
+- Postman
+- React
+- Javascript
+- CSS
+- Bootstrap
+- Express
+- dotenv
+- Mongoose
+- bcrypt
+- react-router-dom
+- react-scripts
+- JWS Tocken /Ajax
+- react-smooth-dnd
 
-### `npm start`
+# Getting Started: Links to the project's planning (Trello board) and the deployed app on Heroku.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ERD
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+![ERD](/public/ERD.jpeg)
 
-### `npm test`
+Trello
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://trello.com/b/6l03VU8N/ga-project3-mello
 
-### `npm run build`
+![trello](/public/trello.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[Heroku](https://ga-evelyn-mello.herokuapp.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Unsolved Problems: List any unsolved issues.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Combining the backend with the frontend 
+- Heroku Deployment
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Future Enhancements:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Full CRUD functionality to all data entities 
+- Styled UI
+- Include Edit and readonly admin interface when sharing board
+- utilize multi-user, real time communication

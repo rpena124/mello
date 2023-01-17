@@ -2,17 +2,17 @@ import './Card.scss'
 
 export default function Card(props) {
     const {card} = props;
-
+    console.log(card.title)
     return (
         <>
 
             <div className="card card-item">
-                {card.img &&
+                {/* {card.img &&
                     <img className='card-cover' src={card.img}
                         onMouseDown={event => event.preventDefault()}
                     />
-                }
-                {card.title}
+                } */}
+                <p>{card.title}test</p>
             </div>
 
         </>

@@ -1,4 +1,4 @@
-import Column from '../Column/Column'
+import Column from '../List/List'
 import './BoardContent.scss'
 import { initialData } from '../../actions/initalData'
 import { useState, useEffect } from 'react';
@@ -20,33 +20,34 @@ export default function BoardContent(
         setNewColumn,
         getColumns,
         deleteColumn,
-        updateColumnTitle,
         createColumn,
-        handleChange
+        foundBoard,
+        id
     }
 ) {
     const [board, setBoard] = useState({});
+    // const [columns, setColumns] = useState([])
     const params = useParams()
     const boardId = params.id
 
-    useEffect(() => {
-        const boardInitData = initialData.boards.find(item => item.id === 'board-1');
-        if (boardInitData) {
-            setBoard(boardInitData);
+    // useEffect(() => {
+    //     const boardInitData = initialData.boards.find(item => item.id === 'board-1');
+    //     if (boardInitData) {
+    //         setBoard(boardInitData);
 
-            // sort columns
-            setColumns(mapOrder(boardInitData.columns, boardInitData.columnOrder, 'id'))
-        }
+    //         // sort columns
+    //         setColumns(mapOrder(boardInitData.columns, boardInitData.columnOrder, 'id'))
+    //     }
 
-        // const boardInitData = board.find(item => item.id === boardId);
-        // if (boardInitData) {
-        //     setBoard(boardInitData);
+    //     // const boardInitData = board.find(item => item.id === boardId);
+    //     // if (boardInitData) {
+    //     //     setBoard(boardInitData);
 
-        //     // // sort columns
-        //     // setColumns(mapOrder(boardInitData.columns, boardInitData.columnOrder, 'id'))
-        // }
+    //     //     // // sort columns
+    //     //     // setColumns(mapOrder(boardInitData.columns, boardInitData.columnOrder, 'id'))
+    //     // }
 
-    }, [])
+    // }, [])
     // useEffect(() => {
     //     getColumns()
     // }, [foundColumn])
@@ -104,15 +105,16 @@ export default function BoardContent(
                     className: 'column-drop-preview'
                 }}
             >
-                {columns && columns.length > 0 && columns.map((column, index) => {
-                    return (
-                        <Draggable key={column.id}>
-                            <Column
-                                column={column}
-                                onCardDrop = {onCardDrop}
-                            />
-                        </Draggable>
-                    )
+                {foundBoard.list && foundBoard.list.length > 0 && 
+                    foundBoard.list.map((list, index) => {
+                        return (
+                            <Draggable key={list._id}>
+                                <Column
+                                    list={list}
+                                    onCardDrop = {onCardDrop}
+                                />
+                            </Draggable>
+                        )
                 })}
                 <div className='add-new-column'>
                     <i className="fa fa-plus icon"></i>Add another column
