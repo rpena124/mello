@@ -61,6 +61,12 @@ const CardDataController = {
                             })
                         }else{
                             res.locals.data.card = createdCard
+                            req.body = {
+                                order:(foundList.card.length)-1
+                            }
+                            res.locals.data.card.order = (foundList.card.length)-1
+                            console.log(res.locals.data.card)
+                            console.log(res.locals.data.card.order)
                             next()
                         }
                     })

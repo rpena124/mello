@@ -1,0 +1,53 @@
+/* board */
+
+.trello-master {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 40px 50px 1fr;
+  background-color: var(--board-bg-color);
+}
+
+/* .board-content {
+  display: flex;
+  overflow-x: auto;
+  margin: 0 var(--gap) var(--gap) 0;
+  gap: 10px;
+  border: solid 10px red;
+} */
+
+/* .board-content::-webkit-scrollbar-:horizontal {
+  height: 11px;
+} */
+.board-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.24);
+  border-radius: 5px solid var(--list-bg-color);
+}
+/* .board-content > .column-drop-preview {
+  background-color: rgba(150, 150, 200, 0.1);
+  border: 1px dashed #abc;
+  margin: 5px 45px 5px 5px;
+} */
+
+/* .board-content > .add-new-column {
+  width: 250px;
+  height: 32px;
+  line-height: 32px;
+  padding: 4px 0 4px 15px;
+  cursor: pointer;
+  color: white;
+  margin-left: var(--gap);
+  font-size: 15px;
+  background-color: hsla(0, 0, 100, 0.24);
+  border-radius: var(--card-border-radius);
+} */
+
+.add-new-column:hover {
+  background-color: hsla(0, 0, 100, 0.34);
+}
+.navbar-app {
+  padding-left: var(--gap);
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  background-color: var(--navbar-app-bg-color);
+}
